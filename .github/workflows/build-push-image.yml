@@ -1,6 +1,6 @@
 name: Build and Push Image
 
-on: [Push]
+on: [push]
 
 jobs:
     run shell command:
