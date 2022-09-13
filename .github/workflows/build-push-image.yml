@@ -1,0 +1,14 @@
+name: Build and Push Image
+
+on: [Push]
+
+jobs:
+    run shell command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo a string
+              run: echo "Hello Github"
+            - name: Multi Line
+              run: |
+                  node -v
+                  npm -v
