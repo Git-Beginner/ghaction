@@ -25,6 +25,3 @@ jobs:
                   context: .
                   tags: rakshs/ghaction:theta
                   push: true
-                  build-args: |
-                      SFDBUNAME=${{secrets.SFDBUNAME}}
-                      SFDBPWD=${{secrets.SFDBPWD}}
