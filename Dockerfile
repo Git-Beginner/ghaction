@@ -5,8 +5,6 @@ ARG  SFDBPWD
 
 LABEL maintainer="roundtable"
 
-RUN microdnf install findutils
-
 COPY . /ghaction
 WORKDIR /ghaction
 
