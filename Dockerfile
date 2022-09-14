@@ -13,4 +13,4 @@ RUN echo SFDBUNAME
 RUN echo SFDBPWD
 EXPOSE 8080
 
-CMD [$JAVA_HOME"/bin/java" "-jar", "/ghaction/build/libs/ghaction-0.0.1-SNAPSHOT.jar", "-DUSER="$SFDBUNAME, "-DPASSWORD="$SFDBPWD]
+CMD ["java" "-jar", "/ghaction/build/libs/ghaction-0.0.1-SNAPSHOT.jar", "-DUSER="$SFDBUNAME, "-DPASSWORD="$SFDBPWD]
