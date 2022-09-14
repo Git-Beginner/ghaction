@@ -24,7 +24,7 @@ jobs:
       
             - name: Build Docker image
               run: |
-                  docker build --tag=rakshs/ghaction:$(date + %s)
+                  docker build --tag=rakshs/ghaction:beta
                   
             - name: Push docker image
               run: docker push ${{ secrets.DOCKER_USER }}/ghaction
