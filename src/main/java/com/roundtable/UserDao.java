@@ -16,8 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDao {
 
-	private String GET_SQL = "SELECT * FROM USERS WHERE USERNAME = :username";
-	private String INSERT_SQL = "INSERT INTO USERS VALUES (?, ?, ?, ?, ? , ?)";
+	private String GET_SQL = "SELECT * FROM USER WHERE USERNAME = :username";
+	private String INSERT_SQL = "INSERT INTO USER VALUES (?, ?, ?, ?, ? , ?)";
 
 	@Autowired
 	private NamedParameterJdbcTemplate npJdbcTemplate;
@@ -26,6 +26,8 @@ public class UserDao {
 	private JdbcTemplate jdbcTemplate;
 
 	public User getUser(String username) {
+		
+		jdbcTemplate.execute("ALTER SESSION SET JDBC_QUERY_RESULT_FORMAT='JSON'");
 		MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 		namedParameters.addValue("username", username);
 		List<User> users = npJdbcTemplate.query(GET_SQL, namedParameters, new RowMapper<User>() {
@@ -34,12 +36,12 @@ public class UserDao {
 			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 				User user = new User();
-				user.setAddress(rs.getString("address"));
-				user.setUsername(rs.getString("username"));
-				user.setEmailId(rs.getString("emailId"));
-				user.setId(rs.getString("id"));
-				user.setPhone(rs.getString("phone"));
-				user.setPassword(rs.getString("password"));
+				user.setAddress(rs.getString("ADDRESS"));
+				user.setUsername(rs.getString("USERNAME"));
+				user.setEmailId(rs.getString("EMAILID"));
+				user.setId(rs.getString("ID"));
+				user.setPhone(rs.getString("PHONE"));
+				user.setPassword(rs.getString("PASSWORD"));
 				return user;
 			}
 
@@ -62,7 +64,7 @@ public class UserDao {
 
 			@Override
 			public int getBatchSize() {
-				return 10;
+				return 1;
 			}
 		});
 		return user;

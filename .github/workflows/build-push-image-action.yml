@@ -23,3 +23,6 @@ jobs:
                   context: .
                   tags: rakshs/ghaction:alpha
                   push: true
+                  build-args: |
+                      SFDBUNAME=${{secrets.SFDBUNAME}}
+                      SFDBPWD=${{secrets.SFDBPWD}}
