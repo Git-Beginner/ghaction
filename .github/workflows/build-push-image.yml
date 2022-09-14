@@ -1,8 +1,6 @@
 name: Build and Push Image
 
 on: 
-    push:
-    
     workflow_dispatch:
     
 
@@ -12,10 +10,7 @@ jobs:
         steps:
             - name: Check out the repo
               uses: actions/checkout@v3
-            - name: echo secrets
-              run: |
-                  echo User ${{ secrets.DOCKER_USER }}   
-                  echo Pwd ${{ secrets.DOCKER_PASSWORD }}
+
             - name: Log in to Docker Hub by Action
               uses: docker/login-action@v1
               with:
