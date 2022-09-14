@@ -21,7 +21,7 @@ jobs:
               uses: docker/build-push-action@v3
               with:
                   context: .
-                  tags: rakshs/ghaction:alpha
+                  tags: rakshs/ghaction:theta
                   push: true
                   build-args: |
                       SFDBUNAME=${{secrets.SFDBUNAME}}
