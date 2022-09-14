@@ -22,3 +22,4 @@ jobs:
               with:
                   context: .
                   tags: rakshs/ghaction:alpha
+                  push: true
