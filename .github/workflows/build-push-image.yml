@@ -22,17 +22,9 @@ jobs:
                   username: ${{ secrets.DOCKER_USER }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
       
-            - name: Log in to Docker Hub
-              env:
-                  username: ${{ secrets.DOCKER_USER }}
-                  password: ${{ secrets.DOCKER_PASSWORD }}
-              run: |
-                  echo ${username}   
-                  echo ${password}
-                  docker login -u ${username} -p {password}
-      
             - name: Build Docker image
               run: |
                   docker build --tag=rakshs/ghaction:$(date + %s)
+                  
             - name: Push docker image
               run: docker push ${{ secrets.DOCKER_USER }}/ghaction
