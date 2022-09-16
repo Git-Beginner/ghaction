@@ -28,3 +28,9 @@ jobs:
                   context: .
                   tags: rakshs/ghaction:theta
                   push: true
+    build-image-push1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out the repo
+              run: |
+                  eecho "Hello"
