@@ -1,11 +1,11 @@
-name: Build and Push Image
+name: Test Python Setup
 
 on: 
     workflow_dispatch:
     
 
 jobs:
-    build-image-push:
+    test-python-setup:
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
