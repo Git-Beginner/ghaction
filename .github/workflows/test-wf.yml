@@ -16,12 +16,14 @@ jobs:
                 python-version: '3.9'
                 cache: 'pip' # caching pip dependencies
             - run: |
-                cd $GITHUB_WORKSPACE/ghaction/automation
+                echo pwd
+                cd $GITHUB_WORKSPACE/automation
                 echo pwd
                 pip install -r requirements.txt
       
             - name: Run the python script.
               run: |
-                cd $GITHUB_WORKSPACE/ghaction/automation
+                echo pwd
+                cd $GITHUB_WORKSPACE/automation
                 echo pwd
                 python test.py
