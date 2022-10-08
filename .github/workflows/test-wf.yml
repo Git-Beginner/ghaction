@@ -11,17 +11,17 @@ jobs:
             - name: Check out the repo
               uses: actions/checkout@v3
               
-        - uses: actions/setup-python@v4
-          with:
-              python-version: '3.9'
-              cache: 'pip' # caching pip dependencies
-      - run: |
-            cd $GITHUB_WORKSPACE/ghaction/automation
-            echo pwd
-            pip install -r requirements.txt
+            - uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+                cache: 'pip' # caching pip dependencies
+            - run: |
+                cd $GITHUB_WORKSPACE/ghaction/automation
+                echo pwd
+                pip install -r requirements.txt
       
-      - name: Run the python script.
-        run: |
-            cd $GITHUB_WORKSPACE/ghaction/automation
-            echo pwd
-            python test.py
+            - name: Run the python script.
+              run: |
+                cd $GITHUB_WORKSPACE/ghaction/automation
+                echo pwd
+                python test.py
