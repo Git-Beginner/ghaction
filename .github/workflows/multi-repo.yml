@@ -19,10 +19,9 @@ jobs:
             - name: validate.
               run: |
                   pwd
-                  ls
-                  cd module
+                  cp module/module-json.json .
                   pwd
-                  ls
+                  ls 
             - uses: actions/setup-python@v4
               with:
                 python-version: '3.9'
