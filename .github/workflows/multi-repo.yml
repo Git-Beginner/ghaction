@@ -1,0 +1,36 @@
+name: Multi Repo Setup
+
+on: 
+    workflow_dispatch:
+    
+
+jobs:
+    test-python-setup:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out the first repo
+              uses: actions/checkout@v3
+      
+            - name: Checkout module repo.
+              run: |
+                echo $HOME
+                cd $HOME
+                ls
+                mkdir moduleRepo
+                cd moduleRepo
+                ls
+                git init
+                git pull https://x-access-token:${{ steps.temp_gh_access_token.outputs.token }}@github.com/Git-Beginner/module-json#master
+                pwd
+                ls
+                echo "repo pulled"
+                cp module-json.json $HOME
+                cd $HOME
+                ls
+
+            - uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+                cache: 'pip' # caching pip dependencies
+            - run: |
+                echo pwd
