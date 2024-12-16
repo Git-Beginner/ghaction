@@ -15,12 +15,12 @@ jobs:
               with:
                   repository: 'Git-Beginner/module-json'
                   ref: 'master'
-                  path: $HOME/module
+                  path: module
             - name: validate.
               run: |
                   pwd
                   ls
-                  cd $HOME/module
+                  cd module
                   pwd
                   ls
             - uses: actions/setup-python@v4
