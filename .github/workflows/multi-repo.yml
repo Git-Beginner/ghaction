@@ -20,6 +20,7 @@ jobs:
                 cd moduleRepo
                 ls
                 git init
+                git remote add origin https://github.com/Git-Beginner/module-json
                 git pull https://x-access-token:${{ steps.temp_gh_access_token.outputs.token }}@github.com/Git-Beginner/module-json.git#master
                 pwd
                 ls
