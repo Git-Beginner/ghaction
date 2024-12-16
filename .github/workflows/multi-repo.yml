@@ -10,25 +10,19 @@ jobs:
         steps:
             - name: Check out the first repo
               uses: actions/checkout@v3
-      
-            - name: Checkout module repo.
+            - name: Check out the second repo
+              uses: actions/checkout@v3
+              with:
+                  repository: 'Git-Beginner/module-json'
+                  ref: 'master'
+                  path: $HOME/module
+            - name: validate.
               run: |
-                echo $HOME
-                cd $HOME
-                ls
-                mkdir moduleRepo
-                cd moduleRepo
-                ls
-                git init
-                git remote add origin https://github.com/Git-Beginner/module-json
-                git pull https://x-access-token:${{ steps.temp_gh_access_token.outputs.token }}@github.com/Git-Beginner/module-json.git#master
-                pwd
-                ls
-                echo "repo pulled"
-                cp module-json.json $HOME
-                cd $HOME
-                ls
-
+                  pwd
+                  ls
+                  cd $HOME/module
+                  pwd
+                  ls
             - uses: actions/setup-python@v4
               with:
                 python-version: '3.9'
